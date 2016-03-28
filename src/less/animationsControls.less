@@ -1,0 +1,109 @@
+/* HIDE ELEMENTS REQUIRED FOR ANIMATION */
+#downloadLink,
+#logo,
+#quote,
+#socialIcons,
+.andMore,
+.caption,
+.downArrow,
+.previewImages,
+.upArrow {
+    display: none;
+}
+/* DEFAULT */
+@defaultAnimationDelay: 0.5s;
+@defaultDuration: 1s;
+@defaultFastDuration: 0.35s;
+/* LOGO */
+@logoAnimationDelay: @defaultAnimationDelay;
+@logoDuration: @defaultDuration;
+@atLogoTotalDuration: @logoAnimationDelay + @logoDuration;
+#logo {
+    -webkit-animation-delay: @logoAnimationDelay;
+    -moz-animation-delay: @logoAnimationDelay;
+    animation-delay: @logoAnimationDelay;
+    -webkit-animation-duration: @logoDuration;
+    -moz-animation-duration: @logoDuration;
+    animation-duration: @logoDuration;
+}
+/* DOWNLOAD LINK */
+@downloadLinkAnimationDelay: @atLogoTotalDuration / 2;
+@downloadLinkDuration: @defaultDuration;
+@atDownloadLinkTotalDuration: @atLogoTotalDuration + @downloadLinkAnimationDelay + @downloadLinkDuration;
+#downloadLink {
+    -webkit-animation-delay: @downloadLinkAnimationDelay;
+    -moz-animation-delay: @downloadLinkAnimationDelay;
+    animation-delay: @downloadLinkAnimationDelay;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+/* QUOTE */
+@goToQuoteAnimationDelay: @atDownloadLinkTotalDuration / 2;
+#goToQuote {
+    -webkit-animation-delay: @goToQuoteAnimationDelay;
+    -moz-animation-delay: @goToQuoteAnimationDelay;
+    animation-delay: @goToQuoteAnimationDelay;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+#quote {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: @defaultFastDuration;
+    -moz-animation-duration: @defaultFastDuration;
+    animation-duration: @defaultFastDuration;
+}
+#goToPreview {
+    -webkit-animation-delay: @defaultFastDuration;
+    -moz-animation-delay: @defaultFastDuration;
+    animation-delay: @defaultFastDuration;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+/* PREVIEW */
+.previewImages {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: @defaultFastDuration;
+    -moz-animation-duration: @defaultFastDuration;
+    animation-duration: @defaultFastDuration;
+}
+.caption {
+    -webkit-animation-delay: @defaultFastDuration / 3;
+    -moz-animation-delay: @defaultFastDuration / 3;
+    animation-delay: @defaultFastDuration / 3;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+.previewArrows {
+    -webkit-animation-delay: @defaultFastDuration * 3;
+    -moz-animation-delay: @defaultFastDuration * 3;
+    animation-delay: @defaultFastDuration * 3;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+/* AND MORE  */
+#andMore {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation-duration: @defaultFastDuration;
+    -moz-animation-duration: @defaultFastDuration;
+    animation-duration: @defaultFastDuration;
+}
+
+#goToDonate {
+    -webkit-animation-delay: @defaultFastDuration;
+    -moz-animation-delay: @defaultFastDuration;
+    animation-delay: @defaultFastDuration;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}

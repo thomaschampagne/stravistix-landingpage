@@ -1,0 +1,52 @@
+{
+    "name": "stravistix-landingpage",
+    "description": "Landing page website of StravistiX for Strava chrome plugin",
+    "homepage": "http://thomaschampagne.github.io/stravistix/",
+    "author": {
+        "name": "Thomas Champagne",
+        "email": "th.champagne@gmail.com",
+        "web": "http://thomaschampagne.github.io"
+    },
+    "contributors": {
+        "name": "Thomas Champagne",
+        "email": "th.champagne@gmail.com",
+        "web": "http://thomaschampagne.github.io"
+    },
+    "version": "1.0.0",
+    "devDependencies": {
+        "angular": "1.5.3",
+        "animate.css": "^3.5.1",
+        "bootstrap": "^3.3.6",
+        "connect": "^3.4.1",
+        "font-awesome": "^4.5.0",
+        "fullpage.js": "^2.7.8",
+        "gulp": "latest",
+        "gulp-autoprefixer": "latest",
+        "gulp-clean": "^0.3.2",
+        "gulp-clean-css": "^2.0.3",
+        "gulp-concat": "^2.6.0",
+        "gulp-cssbeautify": "latest",
+        "gulp-csscomb": "latest",
+        "gulp-csso": "latest",
+        "gulp-if": "^2.0.0",
+        "gulp-less": "latest",
+        "gulp-load-plugins": "latest",
+        "gulp-param": "^1.0.3",
+        "gulp-rename": "latest",
+        "gulp-uglify": "^1.5.3",
+        "gulp-util": "^3.0.7",
+        "jquery": "^2.2.1",
+        "serve-static": "^1.10.2",
+        "underscore": "^1.8.3"
+    },
+    "keywords": ["landingpage", "stravistix", "strava", "chrome", "plugin"],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:thomaschampagne/stravistix-landingpage.git"
+    },
+    "license": "MIT",
+    "readme": "README.md"
+}

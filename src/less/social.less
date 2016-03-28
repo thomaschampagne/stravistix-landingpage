@@ -1,0 +1,27 @@
+/*
+SOCIAL BUTTONS
+*/
+.social {
+    z-index: 1;
+    right: 0;
+    position: absolute;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.socialColor {
+    color: @stravaColor;
+}
+@media screen and (orientation:landscape) {
+    .social > a > i {
+        font-size: 4vw;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+    }
+}
+@media screen and (orientation:portrait) {
+    .social > a > i {
+        font-size: 9vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+}

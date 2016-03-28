@@ -1,0 +1,36 @@
+// Stylesheet responsible of the first page on land
+/*
+Media queries screen min-width test to use proper bg image:
+STD     Ratio   Wpx     Hpx
+-------------------------------------
+WXGA	16:10	1280	800
+FHD	    16:9	1920	1080
+WQXGA	16:10	2560	1600
+4KUHD	16:9	3840	2160
+*/
+@halfKHeight: 800px;
+@2KHeight: 1600px;
+@1KHeight: 1080px;
+@halfKHeight: 800px;
+.landingBgCentering {
+    background-color: black;
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    @media screen and (min-height: (@2KHeight + 1px)) {
+        background-image: url("../img/backgrounds/4k.jpg");
+    }
+    @media screen and (max-height:@2KHeight) and (min-height: (@1KHeight + 1px)) {
+        background-image: url("../img/backgrounds/2k.jpg");
+    }
+    @media screen and (max-height: @1KHeight) and (min-height: (@halfKHeight + 1px)) {
+        background-image: url("../img/backgrounds/1k.jpg");
+    }
+    @media screen and (max-height: @halfKHeight) {
+        background-image: url("../img/backgrounds/0.5k.jpg");
+    }
+}
+@import "logo.less";
+@import "downloadLink.less";
