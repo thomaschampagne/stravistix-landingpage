@@ -26,11 +26,13 @@ Github: https://github.com/thomaschampagne/stravistix-landingpage
 </head>
 
 <body data-ng-app="App" data-ng-controller="BehaviourController">
-    <div id="socialIcons" class="social">
-        <a href="#donatePage"><i class="socialColor fa fa-heart"></i></a>
-        <a target="_blank" href="https://twitter.com/champagnethomas"><i class="socialColor fa fa-twitter"></i></a>
-        <a target="_blank" href="https://www.facebook.com/stravistixforstrava"><i class="socialColor fa fa-facebook"></i></a>
-        <a target="_blank" href="https://github.com/thomaschampagne/stravistix"><i class="socialColor fa fa-github"></i></a>
+    <div id="outsideIcons" class="outsideLinks">
+        <!-- toto tata -->
+        <a target="_blank" href="https://chrome.google.com/webstore/detail/stravistix-for-strava/dhiaggccakkgdfcadnklkbljcgicpckn"><i class="outsideIconsColor fa fa-download"></i></a>
+        <a href="#" ng-click="goToDonatePage()"><i class="outsideIconsColor fa fa-heart"></i></a>
+        <a target="_blank" href="https://twitter.com/champagnethomas"><i class="outsideIconsColor fa fa-petitOiseauBleu"></i></a>
+        <a target="_blank" href="https://www.facebook.com/stravistixforstrava"><i class="outsideIconsColor fa fa-faceDeBouc"></i></a>
+        <a target="_blank" href="https://github.com/thomaschampagne/stravistix"><i class="outsideIconsColor fa fa-github"></i></a>
     </div>
 
     <div id="fullpage">
@@ -51,11 +53,11 @@ Github: https://github.com/thomaschampagne/stravistix-landingpage
         <!-- Section Quote -->
         <div data-anchor="quotePage" class="section">
             <div id="quote" class="quote">
-                Enhance <img class="stravaLogoQuote" src="img/logos/strava_logo.svg" /> for free on <i class="socialColor fa fa-chrome"></i>
+                Enhance <img class="stravaLogoQuote" src="img/logos/strava_logo.svg" /> for free on <i class="outsideIconsColor fa fa-chrome"></i>
                 <br/>
                 <br/> For stats addicted athletes
                 <br/>
-                <br/> Designed with &nbsp;<i class="socialColor fa fa-heart"></i>&nbsp; in french mountains
+                <br/> Designed with &nbsp;<i class="outsideIconsColor fa fa-heart"></i>&nbsp; in french mountains
             </div>
             <div id="goToPreview" class="downArrow">
                 <a href="#" ng-click="nextSection();"><img src="img/arrows/arrow-down.svg" class="img-responsive" /></a>
