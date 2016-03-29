@@ -24,10 +24,9 @@ gulp.task('styles', function(prod) {
             [
                 'node_modules/fullpage.js/jquery.fullPage.css',
                 'node_modules/animate.css/animate.css',
-                'node_modules/font-awesome/css/font-awesome.css',
                 'node_modules/bootstrap/dist/css/bootstrap.css',
                 'modules/swipebox/src/css/swipebox.css',
-                src + 'less/main.less'
+                src + 'less/main.less' // Font-awesome is loaded in that file
             ]
         ).pipe(plugins.less())
         .pipe(plugins.csscomb())

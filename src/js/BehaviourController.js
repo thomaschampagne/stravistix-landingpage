@@ -40,7 +40,7 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
 		// Landing download page
 		if (pageName === 'downloadPage' && $scope.pageNotSeen(pageIndex)) {
 
-			Animator.animate('#socialIcons', {
+			Animator.animate('#outsideIcons', {
 				name: 'fadeIn'
 			});
 			Animator.animate('#logo', {
