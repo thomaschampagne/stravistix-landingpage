@@ -5,8 +5,14 @@ OUTSIDE LINKS BUTTONS
     z-index: 1;
     right: 0;
     position: absolute;
-    padding-top: 1.5vw;
-    padding-right: 1.5vw;
+    @media screen and (orientation:landscape) {
+        padding-top: 1.5vw;
+        padding-right: 1.5vw;
+    }
+    @media screen and (orientation:portrait) {
+        padding-top: 3vw;
+        padding-right: 1.5vw;
+    }
 }
 .outsideLinks a {
     cursor: pointer;
