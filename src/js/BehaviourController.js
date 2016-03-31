@@ -17,7 +17,6 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
 	// On angular preview sections ready...
 	$scope.$on('PreviewSectionsReady', function () {
 		$scope.verticalScrollInit();
-		$scope.handleLogoHinge();
 	});
 
 	$scope.verticalScrollInit = function () {
@@ -139,25 +138,6 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
 
 	$scope.pageSeen = function (index) {
 		return !$scope.pageNotSeen(index);
-	};
-
-	/**
-	 * Logo click fun animation :D
-	 */
-	$scope.handleLogoHinge = function () {
-		$jQ('#logo').on('click', function () {
-			Animator.animate('#logo', {
-				name: 'hinge',
-				delay: 0,
-				duration: 2
-			}, function () {
-				Animator.animate('#logo', {
-					name: 'bounceInUp',
-					delay: 0,
-					duration: 1.5
-				});
-			});
-		});
 	};
 }]);
 
