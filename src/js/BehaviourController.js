@@ -7,11 +7,11 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
 	$scope.previewsData = [{
 		id: 'preview_01',
 		images: ['img/screens/activity_main.jpg'],
-		caption: 'A ton of new advanced metrics [~6o] for demanding athletes.'
+		caption: 'New metrics for demanding athletes.'
     }, {
 		id: 'preview_02',
 		images: ['img/screens/activity_xtd_hr_speed.jpg', 'img/screens/activity_power_cadence.jpg', 'img/screens/activity_grade_elevation.jpg'],
-		caption: 'Time distribution of all sensors data on activities and segments efforts. zones are fully customizable in plugin options.'
+		caption: 'Extended analysis of activities and segments efforts.'
     }];
 
 	// On angular preview sections ready...
