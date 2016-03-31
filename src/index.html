@@ -32,6 +32,9 @@ Github: https://github.com/thomaschampagne/stravistix-landingpage
 </head>
 
 <body data-ng-app="App" data-ng-controller="BehaviourController">
+    <div id="goToTop" class="upArrow">
+        <a href="#" ng-click="goTo('downloadPage')"><img src="img/arrows/arrow-up.svg" class="img-responsive" /></a>
+    </div>
     <div id="outsideIcons" class="outsideLinks">
         <a target="_blank" href="https://chrome.google.com/webstore/detail/stravistix-for-strava/dhiaggccakkgdfcadnklkbljcgicpckn"><i class="outsideIconsColor fa fa-download"></i></a>
         <a href="#" ng-click="goToDonatePage()"><i class="outsideIconsColor fa fa-heart"></i></a>
@@ -94,10 +97,6 @@ Github: https://github.com/thomaschampagne/stravistix-landingpage
         <div data-anchor="donatePage" class="section">
             <!-- Inject Angular Directive of donation  -->
             <paypal-donate class="donate"></paypal-donate>
-
-            <div id="goToTop" class="upArrow">
-                <a href="#" ng-click="goTo('downloadPage')"><img src="img/arrows/arrow-up.svg" class="img-responsive" /></a>
-            </div>
         </div>
     </div>
 </body>

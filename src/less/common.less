@@ -11,15 +11,23 @@ body {
     color: @stravaColor;
     font-family: manifesto;
 }
-
 .ng-carriage-returns {
     white-space: pre-wrap;
 }
-
-a:link,
+a:active,
 a:hover,
-a:visited,
-a:active {
+a:link,
+a:visited {
     color: @stravaColor;
     text-decoration: none;
+}
+.topIconPadding {
+    @media screen and (orientation:landscape) {
+        margin-top: 1.5vw;
+        margin-left: 1.5vw;
+    }
+    @media screen and (orientation:portrait) {
+        margin-top: 3vw;
+        margin-left: 3vw;
+    }
 }

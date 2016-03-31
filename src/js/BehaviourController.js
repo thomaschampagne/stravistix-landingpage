@@ -3,148 +3,168 @@
  */
 app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 'Animator', function ($scope, $jQ, Fullpage, Swipebox, Animator) {
 
-	// Preview Data Definition
-	$scope.previewsData = [{
-		id: 'preview_01',
-		images: ['img/screens/activity_main.jpg'],
-		caption: 'New metrics for demanding athletes.'
+    // Preview Data Definition
+    $scope.previewsData = [{
+        id: 'preview_01',
+        images: ['img/screens/activity_main.jpg'],
+        caption: 'New metrics for demanding athletes.'
     }, {
-		id: 'preview_02',
-		images: ['img/screens/activity_xtd_hr_speed.jpg', 'img/screens/activity_power_cadence.jpg', 'img/screens/activity_grade_elevation.jpg'],
-		caption: 'Extended analysis of activities and segments efforts.'
+        id: 'preview_02',
+        images: ['img/screens/activity_xtd_hr_speed.jpg', 'img/screens/activity_power_cadence.jpg', 'img/screens/activity_grade_elevation.jpg'],
+        caption: 'Extended analysis of activities and segments efforts.'
     }];
 
-	// On angular preview sections ready...
-	$scope.$on('PreviewSectionsReady', function () {
-		$scope.verticalScrollInit();
-	});
+    // On angular preview sections ready...
+    $scope.$on('PreviewSectionsReady', function () {
+        $scope.verticalScrollInit();
+    });
 
-	$scope.verticalScrollInit = function () {
+    $scope.verticalScrollInit = function () {
 
-		// Setup fullpages anchors order
-		$scope.previewsAnchors = _.pluck($scope.previewsData, 'id');
-		$scope.anchors = _.union(['downloadPage', 'quotePage'], $scope.previewsAnchors, ['andMorePage', 'donatePage']);
+        // Setup fullpages anchors order
+        $scope.previewsAnchors = _.pluck($scope.previewsData, 'id');
+        $scope.anchors = _.union(['downloadPage', 'quotePage'], $scope.previewsAnchors, ['andMorePage', 'donatePage']);
 
-		Fullpage.init($scope.anchors, function afterLoad(pageName, pageIndex) {
-			$scope.afterPageLoaded(pageName, pageIndex);
-		});
+        Fullpage.init($scope.anchors, function afterLoad(pageName, pageIndex) {
+            $scope.afterPageLoaded(pageName, pageIndex);
+        });
 
-		Swipebox.init();
-	};
+        Swipebox.init();
+    };
 
-	$scope.afterPageLoaded = function (pageName, pageIndex) {
+    $scope.afterPageLoaded = function (pageName, pageIndex) {
 
-		$scope.currentPageName = pageName;
+        $scope.currentPageName = pageName;
 
-		// Landing download page
-		if (pageName === 'downloadPage' && $scope.pageNotSeen(pageIndex)) {
+        // Landing download page
+        if (pageName === 'downloadPage') {
 
-			Animator.animate('#outsideIcons', {
-				name: 'fadeIn'
-			});
-			Animator.animate('#logo', {
-				name: 'fadeIn'
-			});
-			Animator.animate('#downloadLink', {
-				name: 'fadeIn'
-			});
-			Animator.animate('#goToQuote', {
-				name: 'fadeInDown'
-			});
+            if ($scope.pageNotSeen(pageIndex)) {
 
-			$scope.pagesSeen.push(pageIndex);
-		}
-		// Quote page
-		if (pageName === 'quotePage' && $scope.pageNotSeen(pageIndex)) {
+                Animator.animate('#outsideIcons', {
+                    name: 'fadeIn'
+                });
+                Animator.animate('#logo', {
+                    name: 'fadeIn'
+                });
+                Animator.animate('#downloadLink', {
+                    name: 'fadeIn'
+                });
+                Animator.animate('#goToQuote', {
+                    name: 'fadeInDown'
+                });
+                $scope.pagesSeen.push(pageIndex);
+            }
 
-			Animator.promiseAnimate('#quote', {
-				name: 'fadeInLeft'
-			});
+            // Force hide go to top arrow when we are already on top :)
+            if (Animator.isVisible('#goToTop')) {
+                Animator.animate('#goToTop', {
+                    name: 'fadeOut'
+                }, function () {
+                    Animator.hide('#goToTop');
+                });
+            }
 
-			Animator.animate('#goToPreview', {
-				name: 'fadeInDown'
-			});
+        } else {
+            // Show go to top arrow when not in first section
+            if (!Animator.isVisible('#goToTop')) {
+                Animator.animate('#goToTop', {
+                    name: 'fadeInUp'
+                }, function () {
+                    Animator.show('#goToTop');
+                });
+            }
+        }
 
-			$scope.pagesSeen.push(pageIndex);
-		}
+        // Quote page
+        if (pageName === 'quotePage' && $scope.pageNotSeen(pageIndex)) {
 
-		// Preview pages
-		var posistionOfPreviewAnchor = _.indexOf($scope.previewsAnchors, pageName);
-		if (posistionOfPreviewAnchor !== -1 && $scope.pageNotSeen(pageIndex)) {
+            Animator.promiseAnimate('#quote', {
+                name: 'fadeInLeft'
+            });
 
-			// posistionOfPreviewAnchor++;
-			Animator.animate('#previewImages_' + posistionOfPreviewAnchor, {
-				name: 'fadeIn'
-			});
+            Animator.animate('#goToPreview', {
+                name: 'fadeInDown'
+            });
 
-			Animator.animate('#caption_' + posistionOfPreviewAnchor, {
-				name: 'fadeIn'
-			});
+            $scope.pagesSeen.push(pageIndex);
+        }
 
-			// Animating down arrows from previews
-			Animator.animate('#goToNextFromPreview_' + posistionOfPreviewAnchor, {
-				name: 'fadeInDown'
-			});
+        // Preview pages
+        var posistionOfPreviewAnchor = _.indexOf($scope.previewsAnchors, pageName);
+        if (posistionOfPreviewAnchor !== -1 && $scope.pageNotSeen(pageIndex)) {
 
-			$scope.pagesSeen.push(pageIndex);
-		}
+            // posistionOfPreviewAnchor++;
+            Animator.animate('#previewImages_' + posistionOfPreviewAnchor, {
+                name: 'fadeIn'
+            });
 
-		// And more...
-		if (pageName === 'andMorePage' && $scope.pageNotSeen(pageIndex)) {
-			Animator.animate('#andMore', {
-				name: 'fadeIn'
-			});
-			Animator.animate('#goToDonate', {
-				name: 'fadeInDown'
-			});
-			$scope.pagesSeen.push(pageIndex);
-		}
+            Animator.animate('#caption_' + posistionOfPreviewAnchor, {
+                name: 'fadeIn'
+            });
 
-		// And more...
-		if (pageName === 'donatePage' && $scope.pageNotSeen(pageIndex)) {
-			Animator.animate('#goToTop', {
-				name: 'fadeInUp'
-			});
-			$scope.pagesSeen.push(pageIndex);
-		}
-	};
+            // Animating down arrows from previews
+            Animator.animate('#goToNextFromPreview_' + posistionOfPreviewAnchor, {
+                name: 'fadeInDown'
+            });
 
-	$scope.nextSection = function () {
-		Fullpage.get().moveSectionDown();
-	};
+            $scope.pagesSeen.push(pageIndex);
+        }
 
-	$scope.goToDonatePage = function () {
-		if ($scope.currentPageName === 'donatePage') {
-			Animator.animate('.donate', {
-				name: 'shake'
-			});
-		} else {
-			$scope.goTo('donatePage');
-		}
-	};
+        // And more...
+        if (pageName === 'andMorePage' && $scope.pageNotSeen(pageIndex)) {
+            Animator.animate('#andMore', {
+                name: 'fadeIn'
+            });
+            Animator.animate('#goToDonate', {
+                name: 'fadeInDown'
+            });
+            $scope.pagesSeen.push(pageIndex);
+        }
 
-	$scope.goTo = function (page) {
-		Fullpage.get().moveTo(page);
-	};
+        // And more...
+        if (pageName === 'donatePage' && $scope.pageNotSeen(pageIndex)) {
+            // Stuff...
+            $scope.pagesSeen.push(pageIndex);
+        }
+    };
 
-	/**
-	 * Pages seen management
-	 */
-	$scope.pagesSeen = [];
+    $scope.nextSection = function () {
+        Fullpage.get().moveSectionDown();
+    };
 
-	$scope.pageNotSeen = function (index) {
-		return (_.indexOf($scope.pagesSeen, index) == -1);
-	};
+    $scope.goToDonatePage = function () {
+        if ($scope.currentPageName === 'donatePage') {
+            Animator.animate('.donate', {
+                name: 'shake'
+            });
+        } else {
+            $scope.goTo('donatePage');
+        }
+    };
 
-	$scope.pageSeen = function (index) {
-		return !$scope.pageNotSeen(index);
-	};
+    $scope.goTo = function (page) {
+        Fullpage.get().moveTo(page);
+    };
+
+    /**
+     * Pages seen management
+     */
+    $scope.pagesSeen = [];
+
+    $scope.pageNotSeen = function (index) {
+        return (_.indexOf($scope.pagesSeen, index) == -1);
+    };
+
+    $scope.pageSeen = function (index) {
+        return !$scope.pageNotSeen(index);
+    };
 }]);
 
 app.directive('triggerPreviewSectionsReady', function () {
-	return function ($scope) {
-		if ($scope.$last) {
-			$scope.$emit('PreviewSectionsReady');
-		}
-	};
+    return function ($scope) {
+        if ($scope.$last) {
+            $scope.$emit('PreviewSectionsReady');
+        }
+    };
 });
