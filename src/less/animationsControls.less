@@ -1,5 +1,6 @@
 /* HIDE ELEMENTS REQUIRED FOR ANIMATION */
-#downloadLink,
+#callToAction,
+#downloadButton,
 #logo,
 #outsideIcons,
 #quote,
@@ -35,20 +36,29 @@
     -moz-animation-duration: @logoDuration;
     animation-duration: @logoDuration;
 }
-/* DOWNLOAD LINK */
-@downloadLinkAnimationDelay: @atLogoTotalDuration / 2;
-@downloadLinkDuration: @defaultDuration;
-@atDownloadLinkTotalDuration: @atLogoTotalDuration + @downloadLinkAnimationDelay + @downloadLinkDuration;
-#downloadLink {
-    -webkit-animation-delay: @downloadLinkAnimationDelay;
-    -moz-animation-delay: @downloadLinkAnimationDelay;
-    animation-delay: @downloadLinkAnimationDelay;
+/* CALL TO ACTION */
+@callToActionAnimationDelay: @atLogoTotalDuration / 2;
+@atcallToActionTotalDuration: @atLogoTotalDuration + @callToActionAnimationDelay + @defaultDuration;
+#callToAction {
+    -webkit-animation-delay: @callToActionAnimationDelay;
+    -moz-animation-delay: @callToActionAnimationDelay;
+    animation-delay: @callToActionAnimationDelay;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+/* DOWNLOAD BUTTON */
+@downloadButtonAnimationDelay: @atLogoTotalDuration;
+#downloadButton {
+    -webkit-animation-delay: @downloadButtonAnimationDelay;
+    -moz-animation-delay: @downloadButtonAnimationDelay;
+    animation-delay: @downloadButtonAnimationDelay;
     -webkit-animation-duration: @defaultDuration;
     -moz-animation-duration: @defaultDuration;
     animation-duration: @defaultDuration;
 }
 /* QUOTE */
-@goToQuoteAnimationDelay: @atDownloadLinkTotalDuration / 2;
+@goToQuoteAnimationDelay: @atcallToActionTotalDuration / 2;
 #goToQuote {
     -webkit-animation-delay: @goToQuoteAnimationDelay;
     -moz-animation-delay: @goToQuoteAnimationDelay;

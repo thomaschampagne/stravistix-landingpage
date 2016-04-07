@@ -23,7 +23,7 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
 
         // Setup fullpages anchors order
         $scope.previewsAnchors = _.pluck($scope.previewsData, 'id');
-        $scope.anchors = _.union(['downloadPage', 'quotePage'], $scope.previewsAnchors, ['andMorePage', 'donatePage']);
+        $scope.anchors = _.union(['downloadPage'], $scope.previewsAnchors, ['andMorePage', 'donatePage']);
 
         Fullpage.init($scope.anchors, function afterLoad(pageName, pageIndex) {
             $scope.afterPageLoaded(pageName, pageIndex);
@@ -47,7 +47,10 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
                 Animator.animate('#logo', {
                     name: 'fadeIn'
                 });
-                Animator.animate('#downloadLink', {
+                Animator.animate('#callToAction', {
+                    name: 'fadeIn'
+                });
+                Animator.animate('#downloadButton', {
                     name: 'fadeIn'
                 });
                 Animator.animate('#goToQuote', {
@@ -74,20 +77,6 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
                     Animator.show('#goToTop');
                 });
             }
-        }
-
-        // Quote page
-        if (pageName === 'quotePage' && $scope.pageNotSeen(pageIndex)) {
-
-            Animator.promiseAnimate('#quote', {
-                name: 'fadeInLeft'
-            });
-
-            Animator.animate('#goToPreview', {
-                name: 'fadeInDown'
-            });
-
-            $scope.pagesSeen.push(pageIndex);
         }
 
         // Preview pages
