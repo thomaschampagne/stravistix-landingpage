@@ -94,7 +94,11 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
 
         // And more...
         if (pageName === 'donatePage' && $scope.pageNotSeen(pageIndex)) {
-            // Stuff...
+
+            Animator.animate('#donate', {
+                name: 'fadeIn'
+            });
+
             $scope.pagesSeen.push(pageIndex);
         }
     };

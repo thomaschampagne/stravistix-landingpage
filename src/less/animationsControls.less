@@ -1,5 +1,6 @@
 /* HIDE ELEMENTS REQUIRED FOR ANIMATION */
 #callToAction,
+#donate,
 #downloadButton,
 #logo,
 #outsideIcons,
@@ -14,7 +15,6 @@
 @defaultAnimationDelay: 0.5s;
 @defaultDuration: 1s;
 @defaultFastDuration: 0.35s;
-
 /* LOGO */
 @logoAnimationDelay: @defaultAnimationDelay;
 @logoDuration: @defaultDuration;
@@ -112,6 +112,14 @@
     -webkit-animation-delay: @defaultFastDuration;
     -moz-animation-delay: @defaultFastDuration;
     animation-delay: @defaultFastDuration;
+    -webkit-animation-duration: @defaultDuration;
+    -moz-animation-duration: @defaultDuration;
+    animation-duration: @defaultDuration;
+}
+#donate {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    animation-delay: 0s;
     -webkit-animation-duration: @defaultDuration;
     -moz-animation-duration: @defaultDuration;
     animation-duration: @defaultDuration;
