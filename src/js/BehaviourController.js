@@ -7,7 +7,7 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
     $scope.previewsData = [{
         id: 'preview_01',
         images: ['img/screens/activity_main.jpg'],
-        caption: 'New metrics for demanding athletes.'
+        caption: 'Directly integrated into strava'
     }, {
         id: 'preview_02',
         images: ['img/screens/activity_xtd_hr_speed.jpg', 'img/screens/activity_power_cadence.jpg', 'img/screens/activity_grade_elevation.jpg'],
