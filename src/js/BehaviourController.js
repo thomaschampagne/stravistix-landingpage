@@ -1,7 +1,7 @@
 /**
  * Hold the main behaviour of the landing page
  */
-app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', 'Swipebox', 'Animator', function ($scope, $window, $jQ, Fullpage, Swipebox, Animator) {
+app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', 'Swipebox', 'Animator', function($scope, $window, $jQ, Fullpage, Swipebox, Animator) {
 
     // Preview Data Definition
     $scope.previewsData = [{
@@ -15,11 +15,11 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
     }];
 
     // On angular preview sections ready...
-    $scope.$on('PreviewSectionsReady', function () {
+    $scope.$on('PreviewSectionsReady', function() {
         $scope.verticalScrollInit();
     });
 
-    $scope.verticalScrollInit = function () {
+    $scope.verticalScrollInit = function() {
 
         // Setup fullpages anchors order
         $scope.previewsAnchors = _.pluck($scope.previewsData, 'id');
@@ -32,7 +32,7 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
         Swipebox.init();
     };
 
-    $scope.afterPageLoaded = function (pageName, pageIndex) {
+    $scope.afterPageLoaded = function(pageName, pageIndex) {
 
         $scope.currentPageName = pageName;
 
@@ -99,15 +99,19 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
                 name: 'fadeIn'
             });
 
+            Animator.animate('#goToTop', {
+                name: 'fadeInUp'
+            });
+
             $scope.pagesSeen.push(pageIndex);
         }
     };
 
-    $scope.nextSection = function () {
+    $scope.nextSection = function() {
         Fullpage.get().moveSectionDown();
     };
 
-    $scope.goToDownloadPage = function () {
+    $scope.goToDownloadPage = function() {
         if ($scope.currentPageName === 'downloadPage') {
             $window.open('https://chrome.google.com/webstore/detail/stravistix-for-strava/dhiaggccakkgdfcadnklkbljcgicpckn', '_blank');
         } else {
@@ -115,7 +119,7 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
         }
     };
 
-    $scope.goToDonatePage = function () {
+    $scope.goToDonatePage = function() {
         if ($scope.currentPageName === 'donatePage') {
             Animator.animate('.donate', {
                 name: 'shake'
@@ -125,7 +129,7 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
         }
     };
 
-    $scope.goTo = function (page) {
+    $scope.goTo = function(page) {
         Fullpage.get().moveTo(page);
     };
 
@@ -134,17 +138,17 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
      */
     $scope.pagesSeen = [];
 
-    $scope.pageNotSeen = function (index) {
+    $scope.pageNotSeen = function(index) {
         return (_.indexOf($scope.pagesSeen, index) == -1);
     };
 
-    $scope.pageSeen = function (index) {
+    $scope.pageSeen = function(index) {
         return !$scope.pageNotSeen(index);
     };
 }]);
 
-app.directive('triggerPreviewSectionsReady', function () {
-    return function ($scope) {
+app.directive('triggerPreviewSectionsReady', function() {
+    return function($scope) {
         if ($scope.$last) {
             $scope.$emit('PreviewSectionsReady');
         }
