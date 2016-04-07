@@ -72,7 +72,7 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
             // Show go to top arrow when not in first section
             if (!Animator.isVisible('#goToTop')) {
                 Animator.animate('#goToTop', {
-                    name: 'fadeInUp'
+                    name: 'fadeIn'
                 }, function () {
                     Animator.show('#goToTop');
                 });
