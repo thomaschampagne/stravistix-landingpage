@@ -1,7 +1,7 @@
 /**
  * Hold the main behaviour of the landing page
  */
-app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 'Animator', function ($scope, $jQ, Fullpage, Swipebox, Animator) {
+app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', 'Swipebox', 'Animator', function ($scope, $window, $jQ, Fullpage, Swipebox, Animator) {
 
     // Preview Data Definition
     $scope.previewsData = [{
@@ -58,25 +58,6 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
                 });
                 $scope.pagesSeen.push(pageIndex);
             }
-
-            // Force hide go to top arrow when we are already on top :)
-            if (Animator.isVisible('#goToTop')) {
-                Animator.animate('#goToTop', {
-                    name: 'fadeOut'
-                }, function () {
-                    Animator.hide('#goToTop');
-                });
-            }
-
-        } else {
-            // Show go to top arrow when not in first section
-            if (!Animator.isVisible('#goToTop')) {
-                Animator.animate('#goToTop', {
-                    name: 'fadeIn'
-                }, function () {
-                    Animator.show('#goToTop');
-                });
-            }
         }
 
         // Preview pages
@@ -120,6 +101,14 @@ app.controller("BehaviourController", ['$scope', '$jQ', 'Fullpage', 'Swipebox', 
 
     $scope.nextSection = function () {
         Fullpage.get().moveSectionDown();
+    };
+
+    $scope.goToDownloadPage = function () {
+        if ($scope.currentPageName === 'downloadPage') {
+            $window.open('https://chrome.google.com/webstore/detail/stravistix-for-strava/dhiaggccakkgdfcadnklkbljcgicpckn', '_blank');
+        } else {
+            $scope.goTo('downloadPage');
+        }
     };
 
     $scope.goToDonatePage = function () {
