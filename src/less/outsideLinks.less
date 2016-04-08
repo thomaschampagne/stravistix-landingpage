@@ -5,7 +5,14 @@ OUTSIDE LINKS BUTTONS
     z-index: 1;
     right: 0;
     position: absolute;
-    .topIconPadding;
+    @media screen and (orientation:landscape) {
+        margin-top: 3.25vw;
+        margin-right: 1.5vw;
+    }
+    @media screen and (orientation:portrait) {
+        margin-top: 3vw;
+        margin-left: 3vw;
+    }
 }
 .outsideLinks a {
     cursor: pointer;
@@ -15,14 +22,14 @@ OUTSIDE LINKS BUTTONS
 }
 @media screen and (orientation:landscape) {
     .outsideLinks > a > i {
-        font-size: 4vw;
+        // font-size: 2vw;
         padding-left: 0.5vw;
         padding-right: 0.5vw;
     }
 }
 @media screen and (orientation:portrait) {
     .outsideLinks > a > i {
-        font-size: 9vw;
+        // font-size: 9vw;
         padding-left: 1.0vw;
         padding-right: 1.0vw;
     }
