@@ -1,5 +1,5 @@
 /* HIDE ELEMENTS REQUIRED FOR ANIMATION */
-#callToAction,
+#valueProposal,
 #donate,
 #downloadButton,
 #goToTop,
@@ -29,12 +29,12 @@
     animation-duration: @logoDuration;
 }
 /* CALL TO ACTION */
-@callToActionAnimationDelay: @atLogoTotalDuration / 2;
-@atcallToActionTotalDuration: @atLogoTotalDuration + @callToActionAnimationDelay + @defaultDuration;
-#callToAction {
-    -webkit-animation-delay: @callToActionAnimationDelay;
-    -moz-animation-delay: @callToActionAnimationDelay;
-    animation-delay: @callToActionAnimationDelay;
+@valueProposalAnimationDelay: @atLogoTotalDuration / 2;
+@atvalueProposalTotalDuration: @atLogoTotalDuration + @valueProposalAnimationDelay + @defaultDuration;
+#valueProposal {
+    -webkit-animation-delay: @valueProposalAnimationDelay;
+    -moz-animation-delay: @valueProposalAnimationDelay;
+    animation-delay: @valueProposalAnimationDelay;
     -webkit-animation-duration: @defaultDuration;
     -moz-animation-duration: @defaultDuration;
     animation-duration: @defaultDuration;
@@ -50,7 +50,7 @@
     animation-duration: @defaultDuration;
 }
 /* QUOTE */
-@goToQuoteAnimationDelay: @atcallToActionTotalDuration / 2;
+@goToQuoteAnimationDelay: @atvalueProposalTotalDuration / 2;
 #goToQuote {
     -webkit-animation-delay: @goToQuoteAnimationDelay;
     -moz-animation-delay: @goToQuoteAnimationDelay;

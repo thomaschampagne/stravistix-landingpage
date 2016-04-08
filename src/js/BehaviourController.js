@@ -47,7 +47,7 @@ app.controller("BehaviourController", ['$scope', '$window', '$jQ', 'Fullpage', '
                 Animator.animate('#logo', {
                     name: 'fadeIn'
                 });
-                Animator.animate('#callToAction', {
+                Animator.animate('#valueProposal', {
                     name: 'fadeIn'
                 });
                 Animator.animate('#downloadButton', {
