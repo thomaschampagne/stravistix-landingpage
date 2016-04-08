@@ -1,5 +1,5 @@
 /*
-OUTSIDE LINKS BUTTONS
+OUTSIDE LINKS
 */
 .outsideLinks {
     z-index: 1;
@@ -17,20 +17,26 @@ OUTSIDE LINKS BUTTONS
 .outsideLinks a {
     cursor: pointer;
 }
-.outsideIconsColor {
-    color: @stravaColor;
-}
-@media screen and (orientation:landscape) {
-    .outsideLinks > a > i {
-        // font-size: 2vw;
+/* ICONS STYLE */
+@iconSizeLandscape: 2vw;
+@iconSizePortrait: 9vw;
+.outsideIcons {
+    @media screen and (orientation:landscape) {
+        font-size: @iconSizeLandscape;
         padding-left: 0.5vw;
         padding-right: 0.5vw;
     }
-}
-@media screen and (orientation:portrait) {
-    .outsideLinks > a > i {
-        // font-size: 9vw;
+    @media screen and (orientation:portrait) {
+        font-size: @iconSizePortrait;
         padding-left: 1.0vw;
         padding-right: 1.0vw;
+    }
+}
+.importantIcon {
+    @media screen and (orientation:landscape) {
+        font-size: @iconSizeLandscape * 1.5;
+    }
+    @media screen and (orientation:portrait) {
+        font-size: @iconSizePortrait * 1.5;
     }
 }
