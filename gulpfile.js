@@ -61,6 +61,9 @@ gulp.task('resCopy', function() {
     gulp.src(src + '/index.html')
         .pipe(gulp.dest(dist));
 
+    gulp.src(src + '/builds/index.html')
+        .pipe(gulp.dest(dist + '/builds/'));
+
     gulp.src(src + 'templates/**/*')
         .pipe(gulp.dest(dist + 'templates/'));
 
