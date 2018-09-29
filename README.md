@@ -1,6 +1,6 @@
 Stravistix Landing Page
 ==========
-Code of website running @ http://thomaschampagne.github.io/stravistix/
+Deprecated website
 
 # Project prerequisites
 ## Node Package Manager
